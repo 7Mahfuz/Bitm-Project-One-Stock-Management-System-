@@ -54,6 +54,13 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
+                         <li><a runat="server" href="/UI/CategoryUI">Category</a></li>
+                        <li><a runat="server" href="/UI/CompanyUI">Company</a></li>
+                        <li><a runat="server" href="/UI/ItemUI">Items</a></li>
+                        <li><a runat="server" href="/UI/SearchItemUI">Company</a></li>
+                        <li><a runat="server" href="/UI/StockInUI">Category</a></li>
+                        <li><a runat="server" href="/UI/StockOutUI">Company</a></li>
+                        <li><a runat="server" href="/UI/ViewSalesUI">Category</a></li>
                     </ul>
                 </div>
             </div>
