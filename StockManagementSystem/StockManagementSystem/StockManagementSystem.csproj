@@ -98,7 +98,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BLL\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -168,6 +169,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\CategoryManager.cs" />
+    <Compile Include="BLL\CompanyManager.cs" />
+    <Compile Include="BLL\DamageManager.cs" />
+    <Compile Include="BLL\ItemManager.cs" />
+    <Compile Include="BLL\LostManager.cs" />
+    <Compile Include="BLL\SellManager.cs" />
+    <Compile Include="BLL\StockManager.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +183,14 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\CategoryGateway.cs" />
+    <Compile Include="DAL\ComapanyGateway.cs" />
+    <Compile Include="DAL\DamageGateway.cs" />
+    <Compile Include="DAL\ItemGateway.cs" />
+    <Compile Include="DAL\LostGateway.cs" />
+    <Compile Include="DAL\SellGateway.cs" />
+    <Compile Include="DAL\SQLGateway.cs" />
+    <Compile Include="DAL\StockGateway.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +201,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityModels\Category.cs" />
+    <Compile Include="Models\EntityModels\Comapny.cs" />
+    <Compile Include="Models\EntityModels\Item.cs" />
+    <Compile Include="Models\EntityModels\SellHistory.cs" />
+    <Compile Include="Models\EntityModels\Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
