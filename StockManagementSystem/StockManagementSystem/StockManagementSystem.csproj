@@ -210,6 +210,7 @@
     <Compile Include="Models\EntityModels\Stock.cs" />
     <Compile Include="Models\ViewModels\AllCategoryVM.cs" />
     <Compile Include="Models\ViewModels\AllCompanyVM.cs" />
+    <Compile Include="Models\ViewModels\SearchByDateVM.cs" />
     <Compile Include="Models\ViewModels\SearchItemVM.cs" />
     <Compile Include="Models\ViewModels\StockOutChartVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
