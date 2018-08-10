@@ -16,6 +16,8 @@ namespace StockManagementSystem.DAL
 
         public string Query { get; set; }
 
+        public int RowCount { get; set; }
+
         public SQLGateway()
         {
             Connection = new SqlConnection(@"Data Source=DESKTOP-M16OA3U;Initial Catalog=StockManagementSystem;Integrated Security=True");

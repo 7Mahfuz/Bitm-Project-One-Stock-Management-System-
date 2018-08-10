@@ -12,7 +12,7 @@
             <br />
              <label>To Date :</label><asp:DropDownList ID="toDateDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
             <br />
-            <asp:Button ID="searchButton" runat="server" Text="Button" />
+            <asp:Button ID="searchButton" runat="server" Text="Search" />
            
         </div>
         <div class="col-md-4"></div>

@@ -52,9 +52,9 @@
                 </Columns>
             </asp:GridView>
 
-            <asp:Button ID="sellButton" runat="server" Text="Button" />
-            <asp:Button ID="damageButton" runat="server" Text="Button" />
-            <asp:Button ID="lostButton" runat="server" Text="Button" />
+            <asp:Button ID="sellButton" runat="server" Text="Sell" />
+            <asp:Button ID="damageButton" runat="server" Text="Damage" />
+            <asp:Button ID="lostButton" runat="server" Text="Lost" />
         </div>
         <div class="col-md-2"></div>
 

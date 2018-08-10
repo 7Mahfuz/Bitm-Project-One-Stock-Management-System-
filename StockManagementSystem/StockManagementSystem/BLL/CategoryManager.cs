@@ -1,4 +1,6 @@
-﻿using StockManagementSystem.Models.EntityModels;
+﻿using StockManagementSystem.DAL;
+using StockManagementSystem.Models.ViewModels;
+using StockManagementSystem.Models.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +10,39 @@ namespace StockManagementSystem.BLL
 {
     public class CategoryManager
     {
-        public void Save(Category aCategory)
-        {
+        CategoryGateway aCategoryGateway = new CategoryGateway();
 
+        public string Save(Category aCategory)
+        {
+            if(aCategoryGateway.IsExist(aCategory.Name))
+            {
+                return "Category Name Exist";
+            }
+
+            int rows=aCategoryGateway.Save(aCategory);
+            if(rows>0)
+            {
+                return "Saved Susscesfully";
+            }
+
+            return "Failed";
         }
 
-        public void GetAll()
+        public List<Category> GetAll()
         {
-
+            List<Category> allCategory = new List<Category>();
+            allCategory=aCategoryGateway.GetAll();
+            return allCategory;
         }
 
-      
+      public bool IsExist(string category)
+        {
+            if(aCategoryGateway.IsExist(category))
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

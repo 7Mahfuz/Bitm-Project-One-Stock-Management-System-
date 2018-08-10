@@ -1,4 +1,5 @@
-﻿using StockManagementSystem.Models.EntityModels;
+﻿using StockManagementSystem.Models.ViewModels;
+using StockManagementSystem.Models.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -208,8 +208,6 @@
     <Compile Include="Models\EntityModels\Item.cs" />
     <Compile Include="Models\EntityModels\SellHistory.cs" />
     <Compile Include="Models\EntityModels\Stock.cs" />
-    <Compile Include="Models\ViewModels\AllCategoryVM.cs" />
-    <Compile Include="Models\ViewModels\AllCompanyVM.cs" />
     <Compile Include="Models\ViewModels\SearchByDateVM.cs" />
     <Compile Include="Models\ViewModels\SearchItemVM.cs" />
     <Compile Include="Models\ViewModels\StockOutChartVM.cs" />
