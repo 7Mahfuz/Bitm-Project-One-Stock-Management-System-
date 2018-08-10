@@ -11,7 +11,7 @@ namespace StockManagementSystem.Models.EntityModels
         public string Name { get; set; }
         public int ReorderLevel { get; set; }
 
-        public int CategotyId { get; set; }
+        public int CategoryId { get; set; }
         public int CompanyId { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace StockManagementSystem.DAL
             while(Reader.Read())
             {
                 Category aCategory = new Category();
+                aCategory.Id = (int)Reader["Id"];
                 aCategory.Name = Reader["Name"].ToString();
                 allCategory.Add(aCategory);
             }

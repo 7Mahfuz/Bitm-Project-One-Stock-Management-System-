@@ -11,9 +11,45 @@ namespace StockManagementSystem.UI
 {
     public partial class ItemUI : System.Web.UI.Page
     {
+        CategoryManager aCategoryManager = new CategoryManager();
+        CompanyManager aCompanyManager = new CompanyManager();
+        ItemManager aItemManager = new ItemManager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                List<Category> allCategories = new List<Category>();
+                allCategories = aCategoryManager.GetAll();
 
+                List<Company> allCompanies = new List<Company>();
+                allCompanies = aCompanyManager.GetAll();
+                
+                categoryDropDownList.DataValueField = "Id";
+                categoryDropDownList.DataTextField = "Name";
+                categoryDropDownList.DataSource = allCategories;
+                categoryDropDownList.DataBind();
+                               
+                companyDropDownList.DataValueField = "Id";
+                companyDropDownList.DataTextField = "Name";
+                companyDropDownList.DataSource = allCompanies;
+                companyDropDownList.DataBind();
+
+                reorderTextBox.Text = "0";
+            }
+
+        }
+
+        protected void saveButton_Click(object sender, EventArgs e)
+        {
+            Item aItem = new Item();
+            aItem.Name = itemTextBox.Text;
+            aItem.ReorderLevel = int.Parse(reorderTextBox.Text);
+            aItem.CategoryId = int.Parse(categoryDropDownList.SelectedValue);
+            aItem.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
+
+            string msg = aItemManager.Save(aItem);
+            msgLabel.Text = msg;
         }
     }
 }

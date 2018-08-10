@@ -33,6 +33,7 @@ namespace StockManagementSystem.DAL
             while (Reader.Read())
             {
                 Company aCompany = new Company();
+                aCompany.Id= (int)Reader["Id"];
                 aCompany.Name = Reader["Name"].ToString();
                 allCompany.Add(aCompany);
             }

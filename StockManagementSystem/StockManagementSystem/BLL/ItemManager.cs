@@ -10,9 +10,29 @@ namespace StockManagementSystem.BLL
 {
     public class ItemManager
     {
-        public void Save (Item aItem)
+        ItemGateway aItemGateway = new ItemGateway();
+        public string Save (Item aItem)
         {
+            if(IsExist(aItem))
+            {
+                return "Exist";
+            }
+              int rows = aItemGateway.Save(aItem);
 
+            if(rows>0)
+            {
+                return "Saved";
+            }
+            return "Failed";
+        }
+
+       public bool IsExist(Item aItem)
+        {
+            if(aItemGateway.IsExist(aItem))
+            {
+                return true;
+            }
+            return false;
         }
 
         public void GetAllItemByCompanyId(int companyId)

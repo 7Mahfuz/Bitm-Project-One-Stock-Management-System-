@@ -16,7 +16,11 @@
              <label>Item Name</label><asp:TextBox ID="itemTextBox" runat="server" Width="132px"></asp:TextBox>
             <br />
              <label>Reorder Level</label><asp:TextBox ID="reorderTextBox" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="saveButton" runat="server" Text="Save" OnClick="saveButton_Click" />
+            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
         </div>
+        
         <div class="col-md-4"></div>
     </div>
 
