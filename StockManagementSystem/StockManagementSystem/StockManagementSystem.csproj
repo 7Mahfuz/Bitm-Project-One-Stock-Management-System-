@@ -98,8 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\ViewModels\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -146,6 +144,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="UI\CategoryUI.aspx" />
+    <Content Include="UI\CompanyUI.aspx" />
+    <Content Include="UI\ItemUI.aspx" />
+    <Content Include="UI\SearchItemUI.aspx" />
+    <Content Include="UI\StockInUI.aspx" />
+    <Content Include="UI\StockOutUI.aspx" />
+    <Content Include="UI\ViewSalesUI.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -171,9 +176,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\CategoryManager.cs" />
     <Compile Include="BLL\CompanyManager.cs" />
-    <Compile Include="BLL\DamageManager.cs" />
     <Compile Include="BLL\ItemManager.cs" />
-    <Compile Include="BLL\LostManager.cs" />
+    <Compile Include="BLL\SearchManager.cs" />
     <Compile Include="BLL\SellManager.cs" />
     <Compile Include="BLL\StockManager.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -185,9 +189,7 @@
     </Compile>
     <Compile Include="DAL\CategoryGateway.cs" />
     <Compile Include="DAL\ComapanyGateway.cs" />
-    <Compile Include="DAL\DamageGateway.cs" />
     <Compile Include="DAL\ItemGateway.cs" />
-    <Compile Include="DAL\LostGateway.cs" />
     <Compile Include="DAL\SellGateway.cs" />
     <Compile Include="DAL\SQLGateway.cs" />
     <Compile Include="DAL\StockGateway.cs" />
@@ -206,6 +208,10 @@
     <Compile Include="Models\EntityModels\Item.cs" />
     <Compile Include="Models\EntityModels\SellHistory.cs" />
     <Compile Include="Models\EntityModels\Stock.cs" />
+    <Compile Include="Models\ViewModels\AllCategoryVM.cs" />
+    <Compile Include="Models\ViewModels\AllCompanyVM.cs" />
+    <Compile Include="Models\ViewModels\SearchItemVM.cs" />
+    <Compile Include="Models\ViewModels\StockOutChartVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -220,6 +226,55 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CategoryUI.aspx.cs">
+      <DependentUpon>CategoryUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CategoryUI.aspx.designer.cs">
+      <DependentUpon>CategoryUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CompanyUI.aspx.cs">
+      <DependentUpon>CompanyUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CompanyUI.aspx.designer.cs">
+      <DependentUpon>CompanyUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ItemUI.aspx.cs">
+      <DependentUpon>ItemUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ItemUI.aspx.designer.cs">
+      <DependentUpon>ItemUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchItemUI.aspx.cs">
+      <DependentUpon>SearchItemUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchItemUI.aspx.designer.cs">
+      <DependentUpon>SearchItemUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StockInUI.aspx.cs">
+      <DependentUpon>StockInUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\StockInUI.aspx.designer.cs">
+      <DependentUpon>StockInUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StockOutUI.aspx.cs">
+      <DependentUpon>StockOutUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\StockOutUI.aspx.designer.cs">
+      <DependentUpon>StockOutUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewSalesUI.aspx.cs">
+      <DependentUpon>ViewSalesUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ViewSalesUI.aspx.designer.cs">
+      <DependentUpon>ViewSalesUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -7,5 +7,9 @@ namespace StockManagementSystem.BLL
 {
     public class SellManager
     {
+        public void Sell()
+        {
+
+        }
     }
 }
