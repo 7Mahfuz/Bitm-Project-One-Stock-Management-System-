@@ -22,8 +22,16 @@
 
             <asp:GridView ID="categoryGridView" runat="server">
                 <Columns>
-                    <asp:TemplateField></asp:TemplateField>
-                    <asp:TemplateField></asp:TemplateField>
+                    <asp:TemplateField HeaderText="SL">
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Serial") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Category">
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
