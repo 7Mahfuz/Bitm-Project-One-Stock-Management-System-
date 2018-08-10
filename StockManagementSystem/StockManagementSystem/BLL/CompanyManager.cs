@@ -4,22 +4,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using StockManagementSystem.DAL;
 
 namespace StockManagementSystem.BLL
 {
     public class CompanyManager
     {
-        public void Save(Company aCompany)
-        {
+        ComapanyGateway aComapanyGateway = new ComapanyGateway();
 
+        public string Save(Company aCompany)
+        {
+            if (aComapanyGateway.IsExist(aCompany.Name))
+            {
+                return "Company Name Exist";
+            }
+
+            int rows = aComapanyGateway.Save(aCompany);
+            if (rows > 0)
+            {
+                return "Saved Susscesfully";
+            }
+
+            return "Failed";
         }
 
-        public void GetAll()
+        public List<Company> GetAll()
         {
-
+            List<Company> allCompany = new List<Company>();
+            allCompany = aComapanyGateway.GetAll();
+            return allCompany;
         }
 
-        
+        public bool IsExist(string company)
+        {
+            if (aComapanyGateway.IsExist(company))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
 
     }
 }

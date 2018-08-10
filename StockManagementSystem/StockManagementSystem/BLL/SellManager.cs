@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using StockManagementSystem.Models.ViewModels;
 using StockManagementSystem.Models.EntityModels;
+using StockManagementSystem.DAL;
 
 namespace StockManagementSystem.BLL
 {
