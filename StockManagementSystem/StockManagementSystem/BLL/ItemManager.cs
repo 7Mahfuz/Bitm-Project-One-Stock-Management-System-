@@ -35,14 +35,16 @@ namespace StockManagementSystem.BLL
             return false;
         }
 
-        public void GetAllItemByCompanyId(int companyId)
+        public List<Item> GetAllItemByCompanyId(int companyId)
         {
-
+            List<Item> allItem = new List<Item>();
+            allItem = aItemGateway.GetAllItemByCompanyId(companyId);
+            return allItem;
         }
 
-        public void GetAItemById(int itemId)
+        public int GetReorderByItemId(int itemId)
         {
-
+            return aItemGateway.GetReorderByItemId(itemId);
         }
 
     }

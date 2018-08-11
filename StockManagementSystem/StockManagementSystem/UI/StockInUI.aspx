@@ -9,9 +9,12 @@
    <div class="row">
        <div class="col-md-4"></div>
        <div class="col-md-4">
-           <label>Company :</label><asp:DropDownList ID="companyDropDownList" runat="server"  Height="26px" Width="156px"></asp:DropDownList>
+           <label>Company :</label><asp:DropDownList ID="companyDropDownList" runat="server"  Height="26px" Width="156px" 
+               AutoPostBack="true"
+               OnTextChanged="companyDropDownList_TextChanged"></asp:DropDownList>
             <br />
-             <label>Item :</label><asp:DropDownList ID="itemDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
+             <label>Item :</label><asp:DropDownList ID="itemDropDownList" runat="server" Height="16px" Width="150px"
+                AutoPostBack="true"  OnTextChanged="itemDropDownList_TextChanged"></asp:DropDownList>
             <br />
            <label>Reorder Level</label><asp:TextBox ID="reorderTextBox" runat="server"></asp:TextBox>
            <br />
@@ -19,8 +22,10 @@
            <br />
            <label>Stock In Quantity</label><asp:TextBox ID="stockTextBox" runat="server"></asp:TextBox>
            <br />
-           
+           <asp:Button ID="saveButton" runat="server" Text="Save" OnClick="saveButton_Click" Width="66px" />
+           <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
        </div>
+       
        <div class="col-md-4"></div>
    </div>
 

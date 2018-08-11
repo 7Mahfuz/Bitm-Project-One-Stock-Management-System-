@@ -38,17 +38,34 @@ namespace StockManagementSystem.DAL
 
         }
 
-        public void GetAllItemByCompanyId(int companyId)
+        public List<Item> GetAllItemByCompanyId(int companyId)
         {
             List<Item> allItem = new List<Item>();
             Connection.Open();
-            
+            Query = "select * from Item_tbl where CompanyId="+companyId+"";
+            Command = new SqlCommand(Query, Connection);
+            Reader = Command.ExecuteReader();
+            while(Reader.Read())
+            {
+                Item aItem = new Item();
+                aItem.Id = (int)Reader["Id"];
+                aItem.Name = Reader["Name"].ToString();
+                allItem.Add(aItem);
+            }
+            Reader.Close();
             Connection.Close();
+            return allItem;
         }
 
-        public void GetAItemById(int itemId)
+        public int GetReorderByItemId(int itemId)
         {
 
+            Connection.Open();
+            Query = "select Reorderlvl from Item_tbl where Id="+itemId+"";
+            Command = new SqlCommand(Query, Connection);
+            int reorderlvl = int.Parse(Command.ExecuteScalar().ToString());
+             Connection.Close();
+            return reorderlvl;
         }
     }
 }
