@@ -7,7 +7,7 @@ namespace StockManagementSystem.Models.ViewModels
 {
     public class SearchByDateVM
     {
-        public int Serial { get; set; }
+       
         public string ItemName { get; set; }
         public int Quantity { get; set; }
     }

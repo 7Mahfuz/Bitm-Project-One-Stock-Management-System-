@@ -48,9 +48,11 @@ namespace StockManagementSystem.BLL
             return aStock;
         }
 
-        public void AddToChart()
+        public StockOutChartVM AddToChart(int itemId)
         {
-
+           StockOutChartVM newChart = new StockOutChartVM();
+            newChart = aStockGateway.GetChartThingsByItemId(itemId);
+            return newChart;
         }
 
         public void DamageOrLost()

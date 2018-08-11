@@ -9,9 +9,9 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <label>Company :</label><asp:DropDownList ID="companyDropDownList" runat="server"  Height="26px" Width="156px"></asp:DropDownList>
+            <label>Company :</label><asp:DropDownList ID="companyDropDownList" runat="server"  Height="26px" Width="156px" AutoPostBack="true"  OnTextChanged="companyDropDownList_TextChanged"></asp:DropDownList>
             <br />
-             <label>Item :</label><asp:DropDownList ID="itemDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
+             <label>Item :</label><asp:DropDownList ID="itemDropDownList" runat="server" Height="16px" Width="150px" AutoPostBack="true" OnTextChanged="itemDropDownList_TextChanged"></asp:DropDownList>
             <br />
            <label>Reorder Level</label><asp:TextBox ID="reorderTextBox" runat="server"></asp:TextBox>
            <br />
@@ -19,7 +19,7 @@
            <br />
            <label>Stock Out Quantity</label><asp:TextBox ID="stockTextBox" runat="server"></asp:TextBox>
            <br />
-           
+            <asp:Button ID="addButton" runat="server" Text="Add" OnClick="addButton_Click" Width="52px" />
         </div>
         <div class="col-md-4"></div>
     </div>
@@ -27,16 +27,18 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <asp:GridView ID="stockOutGridView" runat="server">
+            <asp:GridView ID="stockOutGridView" runat="server" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:TemplateField HeaderText="SL">
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Serial") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="SL" HeaderStyle-Width="5%" HeaderStyle-HorizontalAlign="Left">
+            <ItemTemplate>
+                <%# Container.DataItemIndex + 1 %>
+            </ItemTemplate>
+            <HeaderStyle CssClass="table_04" HorizontalAlign="Left"></HeaderStyle>
+            <ItemStyle CssClass="table_02" HorizontalAlign="Left"></ItemStyle>
+        </asp:TemplateField>
                     <asp:TemplateField HeaderText="Item">
                         <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("ItemName") %>'></asp:Label>
+                            <asp:Label ID="Label" runat="server" Text='<%#Eval("ItemName") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Company">

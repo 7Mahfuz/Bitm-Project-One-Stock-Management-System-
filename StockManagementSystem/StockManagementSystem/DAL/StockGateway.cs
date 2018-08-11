@@ -57,5 +57,28 @@ namespace StockManagementSystem.DAL
             Connection.Close();
             return aStock;
         }
+
+
+        public StockOutChartVM GetChartThingsByItemId(int itemId)
+        {
+            Connection.Open();
+            StockOutChartVM stockOutChartVM = new StockOutChartVM();
+            Query = "select * from StockChart where ID=" + itemId + "";
+            Command = new SqlCommand(Query, Connection);
+            Reader = Command.ExecuteReader();
+            while(Reader.Read())
+            {
+                
+                stockOutChartVM.ItemId = (int)Reader["ID"];
+                stockOutChartVM.ItemName = Reader["Item"].ToString();
+                stockOutChartVM.CompanyName = Reader["Company"].ToString();
+                
+
+                
+            }
+            Reader.Close();
+            Connection.Close();
+            return stockOutChartVM;
+        }
     }
 }
