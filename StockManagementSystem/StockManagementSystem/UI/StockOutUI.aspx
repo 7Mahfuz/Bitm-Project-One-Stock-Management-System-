@@ -54,7 +54,7 @@
                 </Columns>
             </asp:GridView>
 
-            <asp:Button ID="sellButton" runat="server" Text="Sell" />
+            <asp:Button ID="sellButton" runat="server" Text="Sell" OnClick="sellButton_Click" />
             <asp:Button ID="damageButton" runat="server" Text="Damage" />
             <asp:Button ID="lostButton" runat="server" Text="Lost" />
         </div>

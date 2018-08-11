@@ -56,11 +56,22 @@ namespace StockManagementSystem.UI
         }
 
         List<StockOutChartVM> aStockChartList = new List<StockOutChartVM>();
+        List<int> listOfItemIds = new List<int>();
+        Dictionary<int, int> trackOfItemId = new Dictionary<int, int>();
+
         protected void addButton_Click(object sender, EventArgs e)
         {
             StockOutChartVM aStockChart = new StockOutChartVM();
             aStockChart = aStockManager.AddToChart(Convert.ToInt32(itemDropDownList.SelectedValue));
+            
             aStockChart.Quantity = Convert.ToInt32(stockTextBox.Text);
+            if(Convert.ToInt32(trackOfItemId[Convert.ToInt32(itemDropDownList.SelectedValue)])!=1)
+            {
+                listOfItemIds.Add(Convert.ToInt32(itemDropDownList.SelectedValue));
+                trackOfItemId[(Convert.ToInt32(itemDropDownList.SelectedValue))]=1;
+            }
+
+            
             if((List<StockOutChartVM>)ViewState["chart"]==null)
             {
                 aStockChartList.Add(aStockChart);
@@ -75,6 +86,11 @@ namespace StockManagementSystem.UI
 
             stockOutGridView.DataSource = aStockChartList;
             stockOutGridView.DataBind();
+
+        }
+
+        protected void sellButton_Click(object sender, EventArgs e)
+        {
 
         }
     }
