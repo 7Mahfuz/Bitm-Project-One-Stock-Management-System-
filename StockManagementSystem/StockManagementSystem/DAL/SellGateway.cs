@@ -10,5 +10,14 @@ namespace StockManagementSystem.DAL
 {
     public class SellGateway : SQLGateway
     {
+        public void Save( SellHistory aSellHistory)
+        {
+            Connection.Open();
+            Query = "insert into SellHistory_tbl values('"+aSellHistory.Date+"',"+aSellHistory.Quantity+","+aSellHistory.ItemId+")";
+            Command = new SqlCommand(Query, Connection);
+            RowCount = Command.ExecuteNonQuery();
+                        Connection.Close();
+         
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace StockManagementSystem.Models.ViewModels
         
         public int ItemId { get; set; }
         public string ItemName { get; set; }
+        public int CompanyId { get; set; }
         public string CompanyName { get; set; }
         public int Quantity { get; set; }
     }

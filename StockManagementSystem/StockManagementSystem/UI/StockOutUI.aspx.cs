@@ -15,6 +15,7 @@ namespace StockManagementSystem.UI
         CompanyManager aCompanyManager = new CompanyManager();
         ItemManager aItemManager = new ItemManager();
         StockManager aStockManager = new StockManager();
+        SellManager aSellManager = new SellManager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,7 +110,20 @@ namespace StockManagementSystem.UI
 
         protected void sellButton_Click(object sender, EventArgs e)
         {
+            aStockChartList= (List<StockOutChartVM>)ViewState["chart"];
+            aSellManager.Sell(aStockChartList,1);
+        }
 
+        protected void damageButton_Click(object sender, EventArgs e)
+        {
+            aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
+            aSellManager.Sell(aStockChartList, 2);
+        }
+
+        protected void lostButton_Click(object sender, EventArgs e)
+        {
+            aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
+            aSellManager.Sell(aStockChartList, 2);
         }
     }
 }

@@ -16,10 +16,8 @@ namespace StockManagementSystem.DAL
             Query = "insert into Stock_tbl values("+aStock.Quantity+","+aStock.ItemId+","+aStock.CompanyId+")";
             Command = new SqlCommand(Query, Connection);
             RowCount = Command.ExecuteNonQuery();
-
-            Connection.Close();
-
-            return RowCount;
+             Connection.Close();
+             return RowCount;
         }
 
         public int Update(Stock aStock)
@@ -28,7 +26,6 @@ namespace StockManagementSystem.DAL
             Query = "update Stock_tbl set Quantity="+aStock.Quantity+" where Id="+aStock.Id+"";
             Command = new SqlCommand(Query, Connection);
             RowCount = Command.ExecuteNonQuery();
-
             Connection.Close();
             return RowCount;
         }
@@ -57,8 +54,6 @@ namespace StockManagementSystem.DAL
             Connection.Close();
             return aStock;
         }
-
-
         public StockOutChartVM GetChartThingsByItemId(int itemId)
         {
             Connection.Open();
@@ -67,18 +62,18 @@ namespace StockManagementSystem.DAL
             Command = new SqlCommand(Query, Connection);
             Reader = Command.ExecuteReader();
             while(Reader.Read())
-            {
-                
+            {               
                 stockOutChartVM.ItemId = (int)Reader["ID"];
+                stockOutChartVM.CompanyId = (int)Reader["CID"];
                 stockOutChartVM.ItemName = Reader["Item"].ToString();
-                stockOutChartVM.CompanyName = Reader["Company"].ToString();
-                
-
-                
+                stockOutChartVM.CompanyName = Reader["Company"].ToString();         
+                               
             }
             Reader.Close();
             Connection.Close();
             return stockOutChartVM;
         }
+
+        
     }
 }
