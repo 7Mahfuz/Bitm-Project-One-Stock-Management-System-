@@ -20,6 +20,7 @@
            <label>Stock Out Quantity</label><asp:TextBox ID="stockTextBox" runat="server"></asp:TextBox>
            <br />
             <asp:Button ID="addButton" runat="server" Text="Add" OnClick="addButton_Click" Width="52px" />
+            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
         </div>
         <div class="col-md-4"></div>
     </div>

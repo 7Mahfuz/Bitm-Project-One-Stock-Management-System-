@@ -57,7 +57,7 @@ namespace StockManagementSystem.UI
 
         List<StockOutChartVM> aStockChartList = new List<StockOutChartVM>();
         List<int> listOfItemIds = new List<int>();
-        Dictionary<int, int> trackOfItemId = new Dictionary<int, int>();
+       
 
         protected void addButton_Click(object sender, EventArgs e)
         {
@@ -65,23 +65,41 @@ namespace StockManagementSystem.UI
             aStockChart = aStockManager.AddToChart(Convert.ToInt32(itemDropDownList.SelectedValue));
             
             aStockChart.Quantity = Convert.ToInt32(stockTextBox.Text);
-            if(Convert.ToInt32(trackOfItemId[Convert.ToInt32(itemDropDownList.SelectedValue)])!=1)
-            {
-                listOfItemIds.Add(Convert.ToInt32(itemDropDownList.SelectedValue));
-                trackOfItemId[(Convert.ToInt32(itemDropDownList.SelectedValue))]=1;
-            }
 
-            
-            if((List<StockOutChartVM>)ViewState["chart"]==null)
+            List<StockOutChartVM> aTempStockChartList = new List<StockOutChartVM>();
+
+            if ((List<StockOutChartVM>)ViewState["chart"]==null)
             {
-                aStockChartList.Add(aStockChart);
-                ViewState["chart"] = aStockChartList;
+                aTempStockChartList.Add(aStockChart);
+                if (!aStockManager.IsItOkAdd(aTempStockChartList, Convert.ToInt32(itemDropDownList.SelectedValue)))
+                {
+                    msgLabel.Text = "Cann't add";
+                }
+                else
+                {
+                    aStockChartList.Add(aStockChart);
+                    ViewState["chart"] = aStockChartList;
+                    msgLabel.Text = "";
+                }
             }
             else
             {
-                aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
-                aStockChartList.Add(aStockChart);
-                ViewState["chart"] = aStockChartList;
+                aTempStockChartList = (List<StockOutChartVM>)ViewState["chart"];
+               
+                aTempStockChartList.Add(aStockChart);
+                if (!aStockManager.IsItOkAdd(aTempStockChartList, Convert.ToInt32(itemDropDownList.SelectedValue)))
+                {
+                    msgLabel.Text = "Cann't add";
+                    aTempStockChartList.RemoveAt(aTempStockChartList.Count - 1);
+                    aStockChartList = aTempStockChartList;
+                }
+                else
+                {
+                    aStockChartList = aTempStockChartList;
+                    ViewState["chart"] = aStockChartList;
+
+
+                }
             }
 
             stockOutGridView.DataSource = aStockChartList;

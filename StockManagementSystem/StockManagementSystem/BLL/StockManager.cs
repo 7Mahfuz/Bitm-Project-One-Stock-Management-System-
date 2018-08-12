@@ -55,6 +55,36 @@ namespace StockManagementSystem.BLL
             return newChart;
         }
 
+        public bool IsItOkAdd(List<StockOutChartVM> chartList, int itemId)
+        {
+            bool flag = true;
+               Stock aStock = new Stock();
+                aStock = GetAStockByItemId(itemId);
+                int sumOfQuantity = 0;
+                foreach (var aChart in chartList)
+                {
+                    if (aChart.ItemId == itemId)
+                    {
+                        sumOfQuantity += aChart.Quantity;
+                    }
+                }
+
+                if (sumOfQuantity > aStock.Quantity)
+                {
+                    flag = false;
+                }
+            
+
+            if (flag)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void DamageOrLost()
         {
 

@@ -14,10 +14,7 @@ namespace StockManagementSystem.BLL
 
         public void Sell(List<StockOutChartVM> chartList, List<int>listOfitemId)
         {
-           if(IsItOk(chartList,listOfitemId))
-            {
-
-            }
+           
         }
 
         public bool IsItOk(List<StockOutChartVM> chartList, List<int> listOfitemId)
