@@ -28,13 +28,14 @@ namespace StockManagementSystem.UI
                 categoryDropDownList.DataValueField = "Id";
                 categoryDropDownList.DataTextField = "Name";
                 categoryDropDownList.DataSource = allCategories;
-                categoryDropDownList.DataBind();
-                               
+                 categoryDropDownList.DataBind();
+                categoryDropDownList.Items.Insert(0, new ListItem("-- Select Category --", "0"));
+
                 companyDropDownList.DataValueField = "Id";
                 companyDropDownList.DataTextField = "Name";
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
-
+                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
                 reorderTextBox.Text = "0";
             }
 
@@ -42,14 +43,23 @@ namespace StockManagementSystem.UI
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
+
             Item aItem = new Item();
             aItem.Name = itemTextBox.Text;
             aItem.ReorderLevel = int.Parse(reorderTextBox.Text);
             aItem.CategoryId = int.Parse(categoryDropDownList.SelectedValue);
             aItem.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
 
-            string msg = aItemManager.Save(aItem);
-            msgLabel.Text = msg;
+            if(aItem.CategoryId>0 && aItem.CompanyId>0)
+            {
+                string msg = aItemManager.Save(aItem);
+                msgLabel.Text = msg;
+            }
+            else
+            {
+                msgLabel.Text = "Please select Valid";
+            }
+            
         }
     }
 }

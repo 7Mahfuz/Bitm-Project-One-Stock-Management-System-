@@ -10,22 +10,29 @@ namespace StockManagementSystem.BLL
 {
     public class SearchManager
     {
-        public void GetAllItemsDetailsByCompanyId(int companyId)
+        ItemGateway aItemGateway = new ItemGateway();
+        public List<SearchItemVM> SearchItem(int companyId,int categoryId)
         {
+            List<SearchItemVM> allItems = new List<SearchItemVM>();
+            if (companyId > 0 && categoryId == 0)
+            {
+                allItems = aItemGateway.SearchItemByComapanyId(companyId);
 
+            }
+            else if (companyId == 0 && categoryId > 0)
+            {
+                allItems = aItemGateway.SearchItemByCategoryId(categoryId);
+            }
+            else if (companyId > 0 && categoryId > 0)
+            {
+                allItems = aItemGateway.SearchItemByBothId(companyId, categoryId);
+            }
+            return allItems;
         }
 
-        public void GetAllItemsDetailsByCategoryId(int companyId)
-        {
+       
 
-        }
-
-        public void GetAllItemsDetailsByCompanyIdAndCategoryId(int companyId)
-        {
-
-        }
-
-        public void GetAllSellHistoryByTwoDates()
+        public void GetAllSellHistoryByDates()
         {
 
         }

@@ -9,7 +9,9 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <label>Category</label><asp:DropDownList ID="categoryDropDownList" runat="server"  Height="26px" Width="156px"></asp:DropDownList>
+            <label>Category</label><asp:DropDownList ID="categoryDropDownList" runat="server"  Height="26px" Width="156px">
+                
+                                   </asp:DropDownList>
             <br />
              <label>Company</label><asp:DropDownList ID="companyDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
             <br />

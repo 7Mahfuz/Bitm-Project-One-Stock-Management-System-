@@ -67,5 +67,66 @@ namespace StockManagementSystem.DAL
              Connection.Close();
             return reorderlvl;
         }
+
+        public List<SearchItemVM> SearchItemByComapanyId(int companyId)
+        {
+            List<SearchItemVM> allItems = new List<SearchItemVM>();
+            Connection.Open();
+            Query = "select * from SearchItem where CompanyId=" + companyId + "";
+            Command = new SqlCommand(Query, Connection);
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                SearchItemVM searchItemVM= new SearchItemVM();
+                searchItemVM.ItemName = Reader["Item"].ToString();
+                searchItemVM.Reorderlvl =(int) Reader["Reorderlvl"];
+                searchItemVM.CompanyName = Reader["Company"].ToString();
+                searchItemVM.Quantity =(int) Reader["Quantity"];
+
+                allItems.Add(searchItemVM);
+            }
+            Reader.Close();Connection.Close();
+            return allItems;
+        }
+        public List<SearchItemVM> SearchItemByCategoryId(int categoryId)
+        {
+            List<SearchItemVM> allItems = new List<SearchItemVM>();
+            Connection.Open();
+            Query = "select * from SearchItem where CategoryId=" + categoryId + "";
+            Command = new SqlCommand(Query, Connection);
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                SearchItemVM searchItemVM = new SearchItemVM();
+                searchItemVM.ItemName = Reader["Item"].ToString();
+                searchItemVM.Reorderlvl = (int)Reader["Reorderlvl"];
+                searchItemVM.CompanyName = Reader["Company"].ToString();
+                searchItemVM.Quantity = (int)Reader["Quantity"];
+
+                allItems.Add(searchItemVM);
+            }
+            Reader.Close(); Connection.Close();
+            return allItems;
+        }
+        public List<SearchItemVM> SearchItemByBothId(int companyId,int categoryId)
+        {
+            List<SearchItemVM> allItems = new List<SearchItemVM>();
+            Connection.Open();
+            Query = "select * from SearchItem where CompanyId=" + companyId + " and CategoryId="+categoryId+"";
+            Command = new SqlCommand(Query, Connection);
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                SearchItemVM searchItemVM = new SearchItemVM();
+                searchItemVM.ItemName = Reader["Item"].ToString();
+                searchItemVM.Reorderlvl = (int)Reader["Reorderlvl"];
+                searchItemVM.CompanyName = Reader["Company"].ToString();
+                searchItemVM.Quantity = (int)Reader["Quantity"];
+
+                allItems.Add(searchItemVM);
+            }
+            Reader.Close(); Connection.Close();
+            return allItems;
+        }
     }
 }

@@ -13,7 +13,7 @@
             <br />
              <label>Category :</label><asp:DropDownList ID="categoryDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
             <br />
-            <asp:Button ID="searchButton" runat="server" Text="Button" />
+            <asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" />
            
         </div>
         <div class="col-md-4"></div>
@@ -22,13 +22,15 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <asp:GridView ID="stockOutGridView" runat="server">
+            <asp:GridView ID="showItemsGridView" runat="server" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:TemplateField HeaderText="SL">
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Serial") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="SL" HeaderStyle-Width="5%" HeaderStyle-HorizontalAlign="Left">
+            <ItemTemplate>
+                <%# Container.DataItemIndex + 1 %>
+            </ItemTemplate>
+            <HeaderStyle CssClass="table_04" HorizontalAlign="Left"></HeaderStyle>
+            <ItemStyle CssClass="table_02" HorizontalAlign="Left"></ItemStyle>
+        </asp:TemplateField>
                     <asp:TemplateField HeaderText="Item">
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("ItemName") %>'></asp:Label>
@@ -44,11 +46,7 @@
                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("Quantity") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Available Quantity">
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("AvailableQuantity") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    
                     <asp:TemplateField HeaderText="Reorder Level">
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("Reorderlvl") %>'></asp:Label>

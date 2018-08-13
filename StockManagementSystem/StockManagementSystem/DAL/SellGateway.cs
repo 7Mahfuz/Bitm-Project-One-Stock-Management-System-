@@ -19,5 +19,14 @@ namespace StockManagementSystem.DAL
                         Connection.Close();
          
         }
+
+        public void SerachByDates(DateTime from,DateTime to)
+        {
+            Connection.Open();
+            Query = "select * from SearchByDate where Date between '" + from + "' and '" + to + "'";
+            Command = new SqlCommand(Query, Connection);
+            Reader = Command.ExecuteReader();
+            Connection.Close();
+        }
     }
 }

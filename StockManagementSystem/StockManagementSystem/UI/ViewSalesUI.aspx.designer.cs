@@ -13,22 +13,22 @@ namespace StockManagementSystem.UI {
     public partial class ViewSalesUI {
         
         /// <summary>
-        /// fromDateDropDownList control.
+        /// fromTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList fromDateDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox fromTextBox;
         
         /// <summary>
-        /// toDateDropDownList control.
+        /// toTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList toDateDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox toTextBox;
         
         /// <summary>
         /// searchButton control.
