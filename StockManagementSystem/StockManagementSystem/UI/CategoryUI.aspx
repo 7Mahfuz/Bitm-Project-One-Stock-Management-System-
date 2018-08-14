@@ -8,10 +8,13 @@
 
     <div class="row">
    <div class="col-md-4"></div>
+        
         <div class="col-md-4">
+            <form class="form-horizontal">
+             <div class="form-group col-xs-2">
              <label> Category Name :</label>
-                 <asp:TextBox ID="categoryTextBox" runat="server" Width="194px"></asp:TextBox>
-                     
+                 <asp:TextBox ID="categoryTextBox" CssClass="form-control" runat="server" Width="194px"></asp:TextBox>
+                     </div></form></div>
             <asp:Button ID="saveButton" runat="server" Text="Save" Width="76px" OnClick="saveButton_Click" />
             <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
            </div>

@@ -11,6 +11,7 @@ namespace StockManagementSystem.BLL
     public class SearchManager
     {
         ItemGateway aItemGateway = new ItemGateway();
+        SellGateway aSellGateway = new SellGateway();
         public List<SearchItemVM> SearchItem(int companyId,int categoryId)
         {
             List<SearchItemVM> allItems = new List<SearchItemVM>();
@@ -32,9 +33,12 @@ namespace StockManagementSystem.BLL
 
        
 
-        public void GetAllSellHistoryByDates()
+        public List<SearchByDateVM> GetAllSellHistoryByDates(DateTime from,DateTime to)
         {
+            List<SearchByDateVM> allsearchByDateVMs = new List<SearchByDateVM>();
+            allsearchByDateVMs = aSellGateway.SerachByDates(from, to);
 
+            return allsearchByDateVMs;
         }
     }
 }

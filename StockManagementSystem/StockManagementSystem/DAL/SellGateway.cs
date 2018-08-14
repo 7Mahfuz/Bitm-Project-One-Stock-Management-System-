@@ -20,13 +20,24 @@ namespace StockManagementSystem.DAL
          
         }
 
-        public void SerachByDates(DateTime from,DateTime to)
+        public List<SearchByDateVM> SerachByDates(DateTime from,DateTime to)
         {
+            List<SearchByDateVM> allSearchByDateVMs = new List<SearchByDateVM>();
             Connection.Open();
             Query = "select * from SearchByDate where Date between '" + from + "' and '" + to + "'";
             Command = new SqlCommand(Query, Connection);
             Reader = Command.ExecuteReader();
+            while(Reader.Read())
+            {
+                SearchByDateVM aSearchByDateVM = new SearchByDateVM();
+                aSearchByDateVM.ItemName = Reader["Item"].ToString();
+                aSearchByDateVM.Quantity = (int)Reader["Quantity"];
+
+                allSearchByDateVMs.Add(aSearchByDateVM);
+            }
+            Reader.Close();
             Connection.Close();
+            return allSearchByDateVMs;
         }
     }
 }

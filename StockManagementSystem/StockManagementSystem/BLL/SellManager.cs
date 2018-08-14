@@ -45,7 +45,7 @@ namespace StockManagementSystem.BLL
                     {
                         SellHistory aSellHistory = new SellHistory();
                         aSellHistory.Date = DateTime.Today;
-                        aSellHistory.Quantity = baseStock.Quantity;
+                        aSellHistory.Quantity = quantity;
                         aSellHistory.ItemId = itemId;
                         aSellGateway.Save(aSellHistory);
                     }
