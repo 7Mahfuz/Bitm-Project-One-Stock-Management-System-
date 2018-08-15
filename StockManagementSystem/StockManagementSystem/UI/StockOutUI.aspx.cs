@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -27,6 +28,7 @@ namespace StockManagementSystem.UI
                 companyDropDownList.DataTextField = "Name";
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
+                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
 
 
                 List<Item> allItems = new List<Item>();
@@ -35,7 +37,11 @@ namespace StockManagementSystem.UI
                 itemDropDownList.DataTextField = "Name";
                 itemDropDownList.DataSource = allItems;
                 itemDropDownList.DataBind();
+                itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
             }
+            DataTable dt = new DataTable();
+            stockOutGridView.DataSource = dt;
+            stockOutGridView.DataBind();
         }
 
         protected void companyDropDownList_TextChanged(object sender, EventArgs e)

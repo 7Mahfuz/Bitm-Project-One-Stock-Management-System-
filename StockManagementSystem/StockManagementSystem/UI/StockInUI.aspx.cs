@@ -25,6 +25,7 @@ namespace StockManagementSystem.UI
                 companyDropDownList.DataTextField = "Name";
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
+               companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
 
 
                 List<Item> allItems = new List<Item>();
@@ -33,6 +34,7 @@ namespace StockManagementSystem.UI
                 itemDropDownList.DataTextField = "Name";
                 itemDropDownList.DataSource = allItems;
                 itemDropDownList.DataBind();
+                itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
             }
         }
 
@@ -44,6 +46,7 @@ namespace StockManagementSystem.UI
             itemDropDownList.DataTextField = "Name";
             itemDropDownList.DataSource = allItems;
             itemDropDownList.DataBind();
+            itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
         }
 
         protected void itemDropDownList_TextChanged(object sender, EventArgs e)

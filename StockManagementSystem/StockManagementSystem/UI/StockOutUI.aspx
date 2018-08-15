@@ -1,34 +1,48 @@
 ﻿
-<%@ Page Title="Company" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StockOutUI.aspx.cs" Inherits="StockManagementSystem.UI.StockOutUI" %>
+<%@ Page Title="Stock Out" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StockOutUI.aspx.cs" Inherits="StockManagementSystem.UI.StockOutUI" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3>Stock out.</h3>
-    <p>Use this area to provide additional information.</p>
+   <br /><br /><br />
+    
 
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <label>Company :</label><asp:DropDownList ID="companyDropDownList" runat="server"  Height="26px" Width="156px" AutoPostBack="true"  OnTextChanged="companyDropDownList_TextChanged"></asp:DropDownList>
-            <br />
-             <label>Item :</label><asp:DropDownList ID="itemDropDownList" runat="server" Height="16px" Width="150px" AutoPostBack="true" OnTextChanged="itemDropDownList_TextChanged"></asp:DropDownList>
-            <br />
-           <label>Reorder Level</label><asp:TextBox ID="reorderTextBox" runat="server"></asp:TextBox>
-           <br />
-           <label>Available Quantity</label><asp:TextBox ID="availableTextBox" runat="server"></asp:TextBox>
-           <br />
-           <label>Stock Out Quantity</label><asp:TextBox ID="stockTextBox" runat="server"></asp:TextBox>
-           <br />
-            <asp:Button ID="addButton" runat="server" Text="Add" OnClick="addButton_Click" Width="52px" />
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label  class="control-label col-md-4">Company</label>
+            <div class="col-md-4">
+            <asp:DropDownList ID="companyDropDownList" CssClass="form-control" runat="server"   Width="200px" AutoPostBack="true"  OnTextChanged="companyDropDownList_TextChanged"></asp:DropDownList></div>
+            <br /><br />
+             <label  class="control-label col-md-4">Item</label>
+            <div class="col-md-4">
+            <asp:DropDownList ID="itemDropDownList" CssClass="form-control" runat="server"  Width="200px" AutoPostBack="true" OnTextChanged="itemDropDownList_TextChanged"></asp:DropDownList></div>
+            <br /><br />
+           <label  class="control-label col-md-4">Reorder Level</label>
+            <div class="col-md-4">
+            <asp:TextBox ID="reorderTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox></div>
+           <br /><br />
+           <label  class="control-label col-md-4">Available Quantity</label>
+            <div class="col-md-4">
+            <asp:TextBox ID="availableTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox></div>
+           <br /><br />
+           <label  class="control-label col-md-4">Stock Out</label>
+            <div class="col-md-4">
+            <asp:TextBox ID="stockTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox>
+                <br />
+                <div class="col-md-4"></div>
+                <asp:Button ID="addButton" CssClass="btn btn-primary" runat="server" Text="Add" OnClick="addButton_Click" Width="52px" />
             <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
+            </div>
+           <br />
+            
         </div>
-        <div class="col-md-4"></div>
+        
     </div>
-
+    <br /><br />
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <asp:GridView ID="stockOutGridView" runat="server" AutoGenerateColumns="false">
+            <div class="table-responsive">
+            <asp:GridView ID="stockOutGridView" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered table-hove">
                 <Columns>
                     <asp:TemplateField HeaderText="SL" HeaderStyle-Width="5%" HeaderStyle-HorizontalAlign="Left">
             <ItemTemplate>
@@ -54,11 +68,14 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-
-            <asp:Button ID="sellButton" runat="server" Text="Sell" OnClick="sellButton_Click" />
-            <asp:Button ID="damageButton" runat="server" Text="Damage" OnClick="damageButton_Click" />
-            <asp:Button ID="lostButton" runat="server" Text="Lost" OnClick="lostButton_Click" />
+                </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
+            <asp:Button ID="sellButton" CssClass="btn btn-primary" runat="server" Text="Sell" OnClick="sellButton_Click" /> &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="damageButton" CssClass="btn btn-primary" runat="server" Text="Damage" OnClick="damageButton_Click" />&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="lostButton" CssClass="btn btn-primary" runat="server" Text="Lost" OnClick="lostButton_Click" />
         </div>
+            </div>
         <div class="col-md-2"></div>
 
     </div>

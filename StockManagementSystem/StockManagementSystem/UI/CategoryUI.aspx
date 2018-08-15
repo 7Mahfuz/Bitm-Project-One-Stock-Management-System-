@@ -1,30 +1,39 @@
 ﻿
-<%@ Page Title="Company" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CategoryUI.aspx.cs" Inherits="StockManagementSystem.UI.CategoryUI" %>
+<%@ Page Title="Category" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CategoryUI.aspx.cs" Inherits="StockManagementSystem.UI.CategoryUI" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3>Category.</h3>
-    <p>Use this area to provide additional information.</p>
-
+    <br />
     <div class="row">
-   <div class="col-md-4"></div>
-        
-        <div class="col-md-4">
-            <form class="form-horizontal">
-             <div class="form-group col-xs-2">
-             <label> Category Name :</label>
-                 <asp:TextBox ID="categoryTextBox" CssClass="form-control" runat="server" Width="194px"></asp:TextBox>
-                     </div></form></div>
-            <asp:Button ID="saveButton" runat="server" Text="Save" Width="76px" OnClick="saveButton_Click" />
-            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
-           </div>
-        <div class="col-md-4"></div>
+    <div class="col-md-3"></div>
+    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insert A Category Name to entry in Category list</p>
     </div>
+   <br />
+   <%-- <form class="form-horizontal">   </form>--%>
+
+     <form class="form-horizontal">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-7">
+                <label  class="control-label col-md-2">Category =</label>
+                <div class="col-xs-5 col-md-5 col-lg-5">
+                <asp:TextBox ID="categoryTextBox" CssClass="form-control" runat="server" ></asp:TextBox>
+                    </div>
+                <div class="col-md-2">
+                <asp:Button ID="saveButton" runat="server" CssClass="btn btn-primary" Text="Save" Width="76px" OnClick="saveButton_Click" />
+            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
+            </div>
+            </div>
+            
+        </div>        
+                </form>
+    
+   <br /><br />    
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-
-            <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="false">
+            <div class="table-responsive">
+            <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered table-hove">
                 <Columns>
                      <asp:TemplateField HeaderText="SL" HeaderStyle-Width="5%" HeaderStyle-HorizontalAlign="Left">
             <ItemTemplate>
@@ -40,8 +49,10 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                </div>
         </div>
         <div class="col-md-3"></div>
+            </div>
 
-    </div>
+
 </asp:Content>

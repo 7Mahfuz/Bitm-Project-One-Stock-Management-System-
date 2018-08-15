@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -39,6 +40,10 @@ namespace StockManagementSystem.UI
                 companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
                 
             }
+
+            DataTable dt = new DataTable();
+            showItemsGridView.DataSource = dt;
+            showItemsGridView.DataBind();
         }
 
         protected void searchButton_Click(object sender, EventArgs e)

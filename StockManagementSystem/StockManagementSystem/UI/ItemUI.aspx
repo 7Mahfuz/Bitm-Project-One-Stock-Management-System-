@@ -1,30 +1,50 @@
 ﻿
-<%@ Page Title="Company" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemUI.aspx.cs" Inherits="StockManagementSystem.UI.ItemUI" %>
+<%@ Page Title="Items" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemUI.aspx.cs" Inherits="StockManagementSystem.UI.ItemUI" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3>items.</h3>
-    <p>Use this area to provide additional information.</p>
-
+     <br />
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <label>Category</label><asp:DropDownList ID="categoryDropDownList" runat="server"  Height="26px" Width="156px">
+    <div class="col-md-3"></div>
+    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insert Item detail to insert in Item list</p>
+    </div>
+   <br />
+    
+    <form class="form-horizontal">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label  class="control-label col-md-3">Category</label>
+            <div class="col-md-4">
+            <asp:DropDownList ID="categoryDropDownList" CssClass="form-control" runat="server"  width="200px">
                 
-                                   </asp:DropDownList>
-            <br />
-             <label>Company</label><asp:DropDownList ID="companyDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
-            <br />
-             <label>Item Name</label><asp:TextBox ID="itemTextBox" runat="server" Width="132px"></asp:TextBox>
-            <br />
-             <label>Reorder Level</label><asp:TextBox ID="reorderTextBox" runat="server"></asp:TextBox>
-            <br />
-            <asp:Button ID="saveButton" runat="server" Text="Save" OnClick="saveButton_Click" />
+                                   </asp:DropDownList></div>
+            <br /><br />
+             <label  class="control-label col-md-3">Company</label>
+            <div class="col-md-4">
+            <asp:DropDownList ID="companyDropDownList" CssClass="form-control" runat="server"  Width="200px"></asp:DropDownList>
+            </div>
+                <br /><br />
+              <label  class="control-label col-md-3">Item Name</label>
+            <div class="col-md-4">
+            <asp:TextBox ID="itemTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox></div>
+            <br /><br />
+             <label  class="control-label col-md-3">Reorder Level</label>
+            <div class="col-md-4">
+            <asp:TextBox ID="reorderTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox>
+
+                <br />
+                <div class="col-md-5"></div>
+            <asp:Button ID="saveButton" runat="server" CssClass="btn btn-primary" Text="Save" OnClick="saveButton_Click" /></div>
+            
+            
+            <br /><br />
+            
             <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
         </div>
         
-        <div class="col-md-4"></div>
+        <div class="col-md-3"></div>
     </div>
+        </form>
 
-
+    
 </asp:Content>

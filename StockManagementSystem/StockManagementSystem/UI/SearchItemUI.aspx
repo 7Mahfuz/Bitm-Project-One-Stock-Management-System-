@@ -1,28 +1,34 @@
 ﻿
-<%@ Page Title="Company" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchItemUI.aspx.cs" Inherits="StockManagementSystem.UI.SearchItemUI" %>
+<%@ Page Title="Search Item" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchItemUI.aspx.cs" Inherits="StockManagementSystem.UI.SearchItemUI" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3>Search Item.</h3>
-    <p>Use this area to provide additional information.</p>
+   <br /><br /><br />
+    
 
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <label>Company :</label><asp:DropDownList ID="companyDropDownList" runat="server"  Height="26px" Width="156px"> </asp:DropDownList>
+            <label  class="control-label col-md-3">Company</label>
+            <div class="col-md-4">
+            <asp:DropDownList ID="companyDropDownList" CssClass="form-control" runat="server"   Width="200px"> </asp:DropDownList></div>
+            <br /><br />
+             <label  class="control-label col-md-3">Category</label>
+            <div class="col-md-4">
+            <asp:DropDownList ID="categoryDropDownList" CssClass="form-control" runat="server"  Width="200px"></asp:DropDownList>
             <br />
-             <label>Category :</label><asp:DropDownList ID="categoryDropDownList" runat="server" Height="16px" Width="150px"></asp:DropDownList>
-            <br />
-            <asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" />
-           
+                <div class="col-md-5"></div>
+            <asp:Button ID="searchButton" CssClass="btn btn-primary" runat="server" Text="Search" OnClick="searchButton_Click" />
+                
+            </div>
         </div>
         <div class="col-md-4"></div>
     </div>
-
+    <br /><br />
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <asp:GridView ID="showItemsGridView" runat="server" AutoGenerateColumns="false">
+            <div class="table-responsive">
+            <asp:GridView ID="showItemsGridView" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered table-hove">
                 <Columns>
                      <asp:TemplateField HeaderText="SL" HeaderStyle-Width="5%" HeaderStyle-HorizontalAlign="Left">
             <ItemTemplate>
@@ -54,7 +60,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-
+                </div>
         </div>
         <div class="col-md-2"></div>
 
