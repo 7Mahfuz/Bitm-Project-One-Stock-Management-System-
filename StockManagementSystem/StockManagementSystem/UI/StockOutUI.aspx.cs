@@ -28,16 +28,7 @@ namespace StockManagementSystem.UI
                 companyDropDownList.DataTextField = "Name";
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
-                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
-
-
-                List<Item> allItems = new List<Item>();
-                allItems = aItemManager.GetAllItemByCompanyId(Convert.ToInt32(companyDropDownList.SelectedValue));
-                itemDropDownList.DataValueField = "Id";
-                itemDropDownList.DataTextField = "Name";
-                itemDropDownList.DataSource = allItems;
-                itemDropDownList.DataBind();
-                itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
+                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));                                
             }
             DataTable dt = new DataTable();
             stockOutGridView.DataSource = dt;
@@ -52,6 +43,7 @@ namespace StockManagementSystem.UI
             itemDropDownList.DataTextField = "Name";
             itemDropDownList.DataSource = allItems;
             itemDropDownList.DataBind();
+            itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
         }
 
         protected void itemDropDownList_TextChanged(object sender, EventArgs e)
@@ -62,31 +54,40 @@ namespace StockManagementSystem.UI
             availableTextBox.Text = aStock.Quantity.ToString();
         }
 
-        List<StockOutChartVM> aStockChartList = new List<StockOutChartVM>();
-        List<int> listOfItemIds = new List<int>();
-       
+        List<StockOutChartVM> aStockChartList = new List<StockOutChartVM>();               
 
         protected void addButton_Click(object sender, EventArgs e)
         {
-            StockOutChartVM aStockChart = new StockOutChartVM();
-            aStockChart = aStockManager.AddToChart(Convert.ToInt32(itemDropDownList.SelectedValue));
-            
-            aStockChart.Quantity = Convert.ToInt32(stockTextBox.Text);
-
+            bool chartflag = false;
+            int itemId = Convert.ToInt32(itemDropDownList.SelectedValue);
             List<StockOutChartVM> aTempStockChartList = new List<StockOutChartVM>();
+            StockOutChartVM aStockChart = new StockOutChartVM();
 
+            try
+            {
+                aStockChart.Quantity = Convert.ToInt32(stockTextBox.Text);
+            }
+            catch
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please Insert a valid Stock Quantity value')", true);
+                return;
+            }
+
+            aStockChart = aStockManager.GetChartThingsByItemId(itemId);          
+
+            aStockChart.Quantity = Convert.ToInt32(stockTextBox.Text);       
+           
             if ((List<StockOutChartVM>)ViewState["chart"]==null)
             {
                 aTempStockChartList.Add(aStockChart);
-                if (!aStockManager.IsItOkAdd(aTempStockChartList, Convert.ToInt32(itemDropDownList.SelectedValue)))
-                {
-                    msgLabel.Text = "Cann't add";
+                if (!aStockManager.IsItOkAdd(aTempStockChartList, itemId))
+                {                    
+                    chartflag = true;
                 }
                 else
                 {
                     aStockChartList.Add(aStockChart);
-                    ViewState["chart"] = aStockChartList;
-                    msgLabel.Text = "";
+                    ViewState["chart"] = aStockChartList;                  
                 }
             }
             else
@@ -94,42 +95,48 @@ namespace StockManagementSystem.UI
                 aTempStockChartList = (List<StockOutChartVM>)ViewState["chart"];
                
                 aTempStockChartList.Add(aStockChart);
-                if (!aStockManager.IsItOkAdd(aTempStockChartList, Convert.ToInt32(itemDropDownList.SelectedValue)))
-                {
-                    msgLabel.Text = "Cann't add";
+                if (!aStockManager.IsItOkAdd(aTempStockChartList, itemId))
+                {                  
                     aTempStockChartList.RemoveAt(aTempStockChartList.Count - 1);
                     aStockChartList = aTempStockChartList;
+                    chartflag = true;
                 }
                 else
                 {
                     aStockChartList = aTempStockChartList;
                     ViewState["chart"] = aStockChartList;
-
-
                 }
+            }
+
+            if(chartflag)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Can not be added in chart due to quantity limit')", true);
             }
 
             stockOutGridView.DataSource = aStockChartList;
             stockOutGridView.DataBind();
-
+            stockTextBox.Text = "";
         }
 
         protected void sellButton_Click(object sender, EventArgs e)
         {
             aStockChartList= (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList,1);
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Sold Succsefully')", true);
         }
 
         protected void damageButton_Click(object sender, EventArgs e)
         {
             aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList, 2);
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Items added on Damage list')", true);
         }
 
         protected void lostButton_Click(object sender, EventArgs e)
         {
             aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList, 2);
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Items added on lost list')", true);
         }
     }
 }

@@ -36,6 +36,7 @@ namespace StockManagementSystem.UI
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
                 companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
+
                 reorderTextBox.Text = "0";
             }
 
@@ -50,16 +51,17 @@ namespace StockManagementSystem.UI
             aItem.CategoryId = int.Parse(categoryDropDownList.SelectedValue);
             aItem.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
 
-            if(aItem.CategoryId>0 && aItem.CompanyId>0)
+            string msg="";
+            if(aItem.CategoryId>0 && aItem.CompanyId>0 && itemTextBox.Text!="")
             {
-                string msg = aItemManager.Save(aItem);
-                msgLabel.Text = msg;
+                 msg = aItemManager.Save(aItem);
+                itemTextBox.Text = "";
             }
             else
             {
-                msgLabel.Text = "Please select Valid";
+                msg = "Please Fill all boxes with valid property";
             }
-            
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + msg + "')", true);
         }
     }
 }

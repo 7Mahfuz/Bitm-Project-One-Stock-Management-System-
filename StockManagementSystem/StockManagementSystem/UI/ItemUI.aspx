@@ -35,12 +35,10 @@
                 <br />
                 <div class="col-md-5"></div>
             <asp:Button ID="saveButton" runat="server" CssClass="btn btn-primary" Text="Save" OnClick="saveButton_Click" /></div>
-            
-            
+                        
             <br /><br />
             
-            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
-        </div>
+                  </div>
         
         <div class="col-md-3"></div>
     </div>

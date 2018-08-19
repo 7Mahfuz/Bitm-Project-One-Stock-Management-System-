@@ -15,15 +15,15 @@ namespace StockManagementSystem.BLL
         {
             if(IsExist(aItem))
             {
-                return "Exist";
+                return " This Item is Already Exist";
             }
               int rows = aItemGateway.Save(aItem);
 
             if(rows>0)
             {
-                return "Saved";
+                return " Item Saved Succesfully";
             }
-            return "Failed";
+            return "Failed to Save the Item";
         }
 
        public bool IsExist(Item aItem)

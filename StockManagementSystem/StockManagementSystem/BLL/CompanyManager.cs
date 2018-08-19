@@ -14,6 +14,11 @@ namespace StockManagementSystem.BLL
 
         public string Save(Company aCompany)
         {
+            if(aCompany.Name=="")
+            {
+                return "Company Name Can not be Empty";
+            }
+
             if (aComapanyGateway.IsExist(aCompany.Name))
             {
                 return "Company Name Exist";

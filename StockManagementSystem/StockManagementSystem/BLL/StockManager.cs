@@ -21,9 +21,9 @@ namespace StockManagementSystem.BLL
                 int rows=aStockGateway.Save(aStock);
                 if (rows > 0)
                 {
-                    return "Saved";
+                    return "Saved Succesfully";
                 }
-                else return "Failed";
+                else return "Failed to Save Stock detail";
 
             }
             else
@@ -34,9 +34,9 @@ namespace StockManagementSystem.BLL
 
                 if (rows > 0)
                 {
-                    return "Updated";
+                    return "Updated the Stock detail";
                 }
-                else return "Update failed";
+                else return "Failed to update stock detail";
             }
 
         }
@@ -48,7 +48,7 @@ namespace StockManagementSystem.BLL
             return aStock;
         }
 
-        public StockOutChartVM AddToChart(int itemId)
+        public StockOutChartVM GetChartThingsByItemId(int itemId)
         {
            StockOutChartVM newChart = new StockOutChartVM();
             newChart = aStockGateway.GetChartThingsByItemId(itemId);
@@ -85,10 +85,7 @@ namespace StockManagementSystem.BLL
             }
         }
 
-        public void DamageOrLost()
-        {
-
-        }
+        
 
     }
 }

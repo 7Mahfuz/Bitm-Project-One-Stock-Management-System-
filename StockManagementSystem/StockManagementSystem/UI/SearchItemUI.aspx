@@ -7,18 +7,19 @@
 
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <label  class="control-label col-md-3">Company</label>
-            <div class="col-md-4">
+            <div class="col-md-5">
             <asp:DropDownList ID="companyDropDownList" CssClass="form-control" runat="server"   Width="200px"> </asp:DropDownList></div>
             <br /><br />
              <label  class="control-label col-md-3">Category</label>
-            <div class="col-md-4">
+            <div class="col-md-5">
             <asp:DropDownList ID="categoryDropDownList" CssClass="form-control" runat="server"  Width="200px"></asp:DropDownList>
             <br />
+                <div class="row">
                 <div class="col-md-5"></div>
             <asp:Button ID="searchButton" CssClass="btn btn-primary" runat="server" Text="Search" OnClick="searchButton_Click" />
-                
+                </div>
             </div>
         </div>
         <div class="col-md-4"></div>

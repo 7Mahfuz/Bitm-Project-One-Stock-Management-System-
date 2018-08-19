@@ -28,8 +28,9 @@ namespace StockManagementSystem.UI
             Company aCompany = new Company();
            aCompany.Name = companyNameTextBox.Text;
             string msg = aCompanyManager.Save(aCompany);
-            msgLabel.Text = msg;
+            companyNameTextBox.Text = "";
             this.Page_Load(null, null);
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + msg + "')", true);
         }
     }
 }

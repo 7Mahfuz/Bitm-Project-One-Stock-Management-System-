@@ -26,15 +26,7 @@ namespace StockManagementSystem.UI
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
-
-
-                List<Item> allItems = new List<Item>();
-                allItems = aItemManager.GetAllItemByCompanyId(Convert.ToInt32(companyDropDownList.SelectedValue));
-                itemDropDownList.DataValueField = "Id";
-                itemDropDownList.DataTextField = "Name";
-                itemDropDownList.DataSource = allItems;
-                itemDropDownList.DataBind();
-                itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
+                
             }
         }
 
@@ -60,11 +52,19 @@ namespace StockManagementSystem.UI
         protected void saveButton_Click(object sender, EventArgs e)
         {
             Stock aStock = new Stock();
-            aStock.Quantity = Convert.ToInt32(stockTextBox.Text);
-            aStock.ItemId = Convert.ToInt32(itemDropDownList.SelectedValue);
-            aStock.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
 
-            msgLabel.Text = aStockManager.Save(aStock);
+            if (stockTextBox.Text == "")
+            { ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please fill-up All boxes')", true); }
+            else
+            {
+                aStock.Quantity = Convert.ToInt32(stockTextBox.Text);
+                aStock.ItemId = Convert.ToInt32(itemDropDownList.SelectedValue);
+                aStock.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
+
+                string msg = aStockManager.Save(aStock);
+                stockTextBox.Text = "";
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + msg + "')", true);
+            }
         }
     }
 }

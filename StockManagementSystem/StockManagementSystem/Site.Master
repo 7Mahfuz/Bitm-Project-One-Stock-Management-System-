@@ -7,7 +7,7 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> Stock Management System</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -16,6 +16,7 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
 
 </head>
 <body>
@@ -54,7 +55,6 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="/UI/CategoryUI">Category</a></li>
                         <li><a runat="server" href="/UI/CompanyUI">Company</a></li>
                         <li><a runat="server" href="/UI/ItemUI">Items</a></li>
@@ -70,9 +70,42 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+            <div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/w3images/lights.jpg">
+        <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+        <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/w3images/nature.jpg">
+        <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+        <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/w3images/fjords.jpg">
+        <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
+        <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+            <%--<footer>
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
+            </footer>--%>
         </div>
 
     </form>

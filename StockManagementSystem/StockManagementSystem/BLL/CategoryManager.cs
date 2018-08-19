@@ -14,6 +14,11 @@ namespace StockManagementSystem.BLL
 
         public string Save(Category aCategory)
         {
+            if(aCategory.Name=="")
+            {
+                return "Category Name can not be Empty";
+            }
+
             if(aCategoryGateway.IsExist(aCategory.Name))
             {
                 return "Category Name Exist";
@@ -24,6 +29,8 @@ namespace StockManagementSystem.BLL
             {
                 return "Saved Susscesfully";
             }
+
+
 
             return "Failed";
         }

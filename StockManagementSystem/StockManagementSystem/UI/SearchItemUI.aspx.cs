@@ -13,10 +13,10 @@ namespace StockManagementSystem.UI
 {
     public partial class SearchItemUI : System.Web.UI.Page
     {
-
         CompanyManager aCompanyManager = new CompanyManager();
         CategoryManager aCategoryManager = new CategoryManager();
         SearchManager aSearchManager = new SearchManager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -51,19 +51,16 @@ namespace StockManagementSystem.UI
             int companyId = Convert.ToInt32(companyDropDownList.SelectedValue);
             int categoryId = Convert.ToInt32(categoryDropDownList.SelectedValue);
 
+            if (companyId == 0 && categoryId == 0)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please select at least one value')", true);
+                return;
+            }
+
             List<SearchItemVM> allItems = new List<SearchItemVM>();
-            if(companyId>0 && categoryId==0)
-            {
-                allItems = aSearchManager.SearchItem(companyId, categoryId);
-            }
-            else if(companyId==0 && categoryId>0)
-            {
-                allItems = aSearchManager.SearchItem(companyId, categoryId);
-            }
-            else if(companyId>0 && categoryId>0)
-            {
-                allItems = aSearchManager.SearchItem(companyId, categoryId);
-            }
+            allItems = aSearchManager.SearchItem(companyId, categoryId);
+
+           
             showItemsGridView.DataSource = allItems;
             showItemsGridView.DataBind();
 

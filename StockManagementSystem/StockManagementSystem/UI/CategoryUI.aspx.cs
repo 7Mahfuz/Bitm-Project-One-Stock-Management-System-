@@ -24,11 +24,12 @@ namespace StockManagementSystem.UI
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
-            Category aCategory = new Category();
+             Category aCategory = new Category();
             aCategory.Name = categoryTextBox.Text;
             string msg = aCategoryManager.Save(aCategory);
-            msgLabel.Text = msg;
+            categoryTextBox.Text = "";
             this.Page_Load(null,null);
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('"+msg+"')", true);
         }
     }
 }

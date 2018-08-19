@@ -14,6 +14,7 @@ namespace StockManagementSystem.UI
     public partial class ViewSalesUI : System.Web.UI.Page
     {
         SearchManager aSearchManager = new SearchManager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -26,10 +27,17 @@ namespace StockManagementSystem.UI
             DateTime from = DateTime.Parse(fromTextBox.Text);
             DateTime to = DateTime.Parse(toTextBox.Text);
 
+            if (from.ToString() == "" && to.ToString() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please Select both Dates')", true);
+            }
+            else
+            { 
             List<SearchByDateVM> aSearchByDateVMs = new List<SearchByDateVM>();
             aSearchByDateVMs = aSearchManager.GetAllSellHistoryByDates(from, to);
             searchSellGridView.DataSource = aSearchByDateVMs;
             searchSellGridView.DataBind();
+        }
         }
     }
 }

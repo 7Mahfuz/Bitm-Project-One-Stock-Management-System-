@@ -19,7 +19,7 @@
                     </div>
                 <div class="col-md-2">
                  <asp:Button ID="saveButton" runat="server" CssClass="btn btn-primary" Text="Save" Width="76px" OnClick="saveButton_Click" />
-            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
+           
             </div>
             </div>
             
