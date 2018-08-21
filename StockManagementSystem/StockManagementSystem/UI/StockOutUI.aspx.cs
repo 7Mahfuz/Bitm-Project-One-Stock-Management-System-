@@ -18,6 +18,8 @@ namespace StockManagementSystem.UI
         StockManager aStockManager = new StockManager();
         SellManager aSellManager = new SellManager();
 
+        List<StockOutChartVM> aStockChartList = new List<StockOutChartVM>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -28,11 +30,16 @@ namespace StockManagementSystem.UI
                 companyDropDownList.DataTextField = "Name";
                 companyDropDownList.DataSource = allCompanies;
                 companyDropDownList.DataBind();
-                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));                                
+                companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
+
+                GridViewInitialize();
+                
             }
-            DataTable dt = new DataTable();
-            stockOutGridView.DataSource = dt;
-            stockOutGridView.DataBind();
+            else
+            {
+                stockOutGridView.DataSource = (List<StockOutChartVM>)ViewState["chart"];
+                stockOutGridView.DataBind();
+            }
         }
 
         protected void companyDropDownList_TextChanged(object sender, EventArgs e)
@@ -44,7 +51,12 @@ namespace StockManagementSystem.UI
             itemDropDownList.DataSource = allItems;
             itemDropDownList.DataBind();
             itemDropDownList.Items.Insert(0, new ListItem("-- Select Item --", "0"));
-        }
+
+            reorderTextBox.Text = "";
+            availableTextBox.Text = "";
+            stockTextBox.Text = "";
+
+                    }
 
         protected void itemDropDownList_TextChanged(object sender, EventArgs e)
         {
@@ -52,9 +64,7 @@ namespace StockManagementSystem.UI
             Stock aStock = new Stock();
             aStock = aStockManager.GetAStockByItemId(Convert.ToInt32(itemDropDownList.SelectedValue));
             availableTextBox.Text = aStock.Quantity.ToString();
-        }
-
-        List<StockOutChartVM> aStockChartList = new List<StockOutChartVM>();               
+        }                      
 
         protected void addButton_Click(object sender, EventArgs e)
         {
@@ -87,7 +97,8 @@ namespace StockManagementSystem.UI
                 else
                 {
                     aStockChartList.Add(aStockChart);
-                    ViewState["chart"] = aStockChartList;                  
+                    ViewState["chart"] = aStockChartList;
+                    ClearAllControls();
                 }
             }
             else
@@ -105,6 +116,7 @@ namespace StockManagementSystem.UI
                 {
                     aStockChartList = aTempStockChartList;
                     ViewState["chart"] = aStockChartList;
+                    ClearAllControls();
                 }
             }
 
@@ -115,13 +127,16 @@ namespace StockManagementSystem.UI
 
             stockOutGridView.DataSource = aStockChartList;
             stockOutGridView.DataBind();
-            stockTextBox.Text = "";
+            
         }
 
         protected void sellButton_Click(object sender, EventArgs e)
         {
             aStockChartList= (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList,1);
+            ClearAllControls();
+            GridViewInitialize();
+
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Sold Succsefully')", true);
         }
 
@@ -129,6 +144,8 @@ namespace StockManagementSystem.UI
         {
             aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList, 2);
+            ClearAllControls();
+            GridViewInitialize();
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Items added on Damage list')", true);
         }
 
@@ -136,7 +153,25 @@ namespace StockManagementSystem.UI
         {
             aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList, 2);
+            ClearAllControls();
+            GridViewInitialize();
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Items added on lost list')", true);
+        }
+
+        public void GridViewInitialize()
+        {
+            DataTable dt = new DataTable();
+            stockOutGridView.DataSource = dt;
+            stockOutGridView.DataBind();
+        }
+
+        public void ClearAllControls()
+        {
+            companyDropDownList.SelectedValue = "0";
+            itemDropDownList.SelectedValue = "0";
+            reorderTextBox.Text = "";
+            availableTextBox.Text = "";
+            stockTextBox.Text = "";
         }
     }
 }

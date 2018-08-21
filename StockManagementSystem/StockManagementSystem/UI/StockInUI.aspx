@@ -26,12 +26,12 @@
             <br /><br />
            <label  class="control-label col-md-4">Reorder Level</label>
             <div class="col-md-4">
-           <asp:TextBox ID="reorderTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox>
+           <asp:TextBox ID="reorderTextBox" CssClass="form-control" runat="server" Width="200px" ReadOnly="True"></asp:TextBox>
             </div>
            <br /><br />
              <label  class="control-label col-md-4">Available Quantity</label>
             <div class="col-md-4">
-           <asp:TextBox ID="availableTextBox" CssClass="form-control" runat="server" Width="200px" ></asp:TextBox></div>
+           <asp:TextBox ID="availableTextBox" CssClass="form-control" runat="server" Width="200px" ReadOnly="True" ></asp:TextBox></div>
            <br /><br />
            <label  class="control-label col-md-4">Stock In</label>
             <div class="col-md-4">

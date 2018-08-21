@@ -2,7 +2,91 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
+    <hr /><hr />
+
+    <div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="UI/CategoryUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+                <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="UI/CompanyUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+        <div class="caption">
+          <p> Company Section </p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="UI/ItemUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+        <div class="caption">
+          <p>  Item Section  </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+    <hr /><hr />
+
+ <div class="row">
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="UI/SearchItemUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+                <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="UI/StockInUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+        <div class="caption">
+          <p> Company Section </p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="UI/StockOutUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+        <div class="caption">
+          <p>  Item Section  </p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+     <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="UI/ViewSalesUI.aspx">
+             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
+                <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>   
+
+</asp:Content>
+
+
+ <%--<div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
@@ -37,6 +121,4 @@
                 <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
             </p>
         </div>
-    </div>
-
-</asp:Content>
+    </div>--%>

@@ -81,7 +81,7 @@ namespace StockManagementSystem.DAL
                 searchItemVM.ItemName = Reader["Item"].ToString();
                 searchItemVM.Reorderlvl =(int) Reader["Reorderlvl"];
                 searchItemVM.CompanyName = Reader["Company"].ToString();
-                searchItemVM.Quantity =(int) Reader["Quantity"];
+                searchItemVM.Quantity = Reader["Quantity"].ToString();
 
                 allItems.Add(searchItemVM);
             }
@@ -101,7 +101,7 @@ namespace StockManagementSystem.DAL
                 searchItemVM.ItemName = Reader["Item"].ToString();
                 searchItemVM.Reorderlvl = (int)Reader["Reorderlvl"];
                 searchItemVM.CompanyName = Reader["Company"].ToString();
-                searchItemVM.Quantity = (int)Reader["Quantity"];
+                searchItemVM.Quantity = Reader["Quantity"].ToString();
 
                 allItems.Add(searchItemVM);
             }
@@ -121,7 +121,7 @@ namespace StockManagementSystem.DAL
                 searchItemVM.ItemName = Reader["Item"].ToString();
                 searchItemVM.Reorderlvl = (int)Reader["Reorderlvl"];
                 searchItemVM.CompanyName = Reader["Company"].ToString();
-                searchItemVM.Quantity = (int)Reader["Quantity"];
+                searchItemVM.Quantity = Reader["Quantity"].ToString();
 
                 allItems.Add(searchItemVM);
             }

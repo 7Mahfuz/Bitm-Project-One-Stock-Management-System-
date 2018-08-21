@@ -7,8 +7,8 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title><%: Page.Title %> Stock Management System</title>
-
+    <title><%: Page.Title %> </title>
+   
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -69,46 +69,16 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="/w3images/lights.jpg">
-        <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
-        <div class="caption">
-          <p>Lorem ipsum...</p>
+            
+            
+           
         </div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="/w3images/nature.jpg">
-        <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-        <div class="caption">
-          <p>Lorem ipsum...</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="/w3images/fjords.jpg">
-        <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-        <div class="caption">
-          <p>Lorem ipsum...</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-
-            <%--<footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>--%>
-        </div>
-
+         
     </form>
+    <br /><br /><br /><br />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Stock Management System</p>
+            </footer>
 </body>
 </html>
  

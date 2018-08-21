@@ -10,7 +10,7 @@ namespace StockManagementSystem.Models.ViewModels
         
         public string ItemName { get; set; }
         public string CompanyName { get; set; }
-        public int Quantity { get; set; }
+        public string Quantity { get; set; }
                 public int Reorderlvl { get; set; }
     }
 }

@@ -44,24 +44,40 @@ namespace StockManagementSystem.UI
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
-
+            string msg = "";
             Item aItem = new Item();
             aItem.Name = itemTextBox.Text;
-            aItem.ReorderLevel = int.Parse(reorderTextBox.Text);
+            
             aItem.CategoryId = int.Parse(categoryDropDownList.SelectedValue);
             aItem.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
 
-            string msg="";
-            if(aItem.CategoryId>0 && aItem.CompanyId>0 && itemTextBox.Text!="")
-            {
-                 msg = aItemManager.Save(aItem);
-                itemTextBox.Text = "";
+            try {
+                aItem.ReorderLevel = int.Parse(reorderTextBox.Text);
+
+                if (aItem.CategoryId > 0 && aItem.CompanyId > 0 && itemTextBox.Text != "")
+                {
+                    msg = aItemManager.Save(aItem);
+                    ClearAll();
+                }
+                else
+                {
+                    msg = "Please Fill all boxes with valid property";
+                }
             }
-            else
-            {
-                msg = "Please Fill all boxes with valid property";
-            }
+            catch {
+                msg = "Re-Order Box must be a number value";
+            }    
+
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + msg + "')", true);
+        }
+
+        public void ClearAll()
+        {
+
+            itemTextBox.Text = "";
+            reorderTextBox.Text = "0";
+            categoryDropDownList.SelectedValue = "0";
+            companyDropDownList.SelectedValue = "0";
         }
     }
 }

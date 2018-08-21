@@ -18,11 +18,12 @@
             <br /><br />
            <label  class="control-label col-md-4">Reorder Level</label>
             <div class="col-md-4">
-            <asp:TextBox ID="reorderTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox></div>
+            <asp:TextBox ID="reorderTextBox" CssClass="form-control" runat="server" Width="200px" ReadOnly="True"></asp:TextBox></div>
            <br /><br />
            <label  class="control-label col-md-4">Available Quantity</label>
+
             <div class="col-md-4">
-            <asp:TextBox ID="availableTextBox" CssClass="form-control" runat="server" Width="200px"></asp:TextBox></div>
+            <asp:TextBox ID="availableTextBox" CssClass="form-control" runat="server" Width="200px" ReadOnly="True"></asp:TextBox></div>
            <br /><br />
            <label  class="control-label col-md-4">Stock Out</label>
             <div class="col-md-4">
@@ -30,7 +31,7 @@
                 <br />
                 <div class="col-md-4"></div>
                 <asp:Button ID="addButton" CssClass="btn btn-primary" runat="server" Text="Add" OnClick="addButton_Click" Width="52px" />
-            <asp:Label ID="msgLabel" runat="server" Text=""></asp:Label>
+           
             </div>
            <br />
             
