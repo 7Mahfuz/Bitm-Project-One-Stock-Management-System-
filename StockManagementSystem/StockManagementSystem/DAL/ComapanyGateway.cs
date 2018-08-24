@@ -13,12 +13,14 @@ namespace StockManagementSystem.DAL
         public int Save(Company aCompany)
         {
             Connection.Open();
-            Query = "insert into Company_tbl values('" + aCompany.Name + "')";
+
+            Query = "insert into Company_tbl values(@Name)";
             Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("Name", aCompany.Name);
+
             RowCount = Command.ExecuteNonQuery();
-
             Connection.Close();
-
             return RowCount;
         }
 
@@ -46,18 +48,17 @@ namespace StockManagementSystem.DAL
         public bool IsExist(string company)
         {
             Connection.Open();
-            Query = "select * from Company_tbl where Name='" + company + "'";
+            Query = "select * from Company_tbl where Name=@Name";
             Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("Name", company);
+
             Reader = Command.ExecuteReader();
-            if (Reader.HasRows)
-            {
-                Connection.Close();
-                Reader.Close();
-                return true;
-            }
+
+            bool flag = Reader.HasRows;
             Connection.Close();
             Reader.Close();
-            return false;
+            return flag;
         }
     }
 }

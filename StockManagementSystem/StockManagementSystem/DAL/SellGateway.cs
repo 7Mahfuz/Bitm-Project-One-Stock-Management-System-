@@ -16,7 +16,8 @@ namespace StockManagementSystem.DAL
             Query = "insert into SellHistory_tbl values('"+aSellHistory.Date+"',"+aSellHistory.Quantity+","+aSellHistory.ItemId+")";
             Command = new SqlCommand(Query, Connection);
             RowCount = Command.ExecuteNonQuery();
-                        Connection.Close();
+
+            Connection.Close();
          
         }
 

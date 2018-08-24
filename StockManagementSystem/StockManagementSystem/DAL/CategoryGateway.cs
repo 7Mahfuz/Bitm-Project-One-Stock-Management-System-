@@ -13,12 +13,14 @@ namespace StockManagementSystem.DAL
         public int Save(Category aCategory)
         {
             Connection.Open();
-            Query = "insert into Category_tbl values('"+aCategory.Name+"')";
+
+            Query = "insert into Category_tbl values(@Name)";
             Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("Name", aCategory.Name);
+
             RowCount = Command.ExecuteNonQuery();
-
             Connection.Close();
-
             return RowCount;
         }
 
@@ -46,18 +48,19 @@ namespace StockManagementSystem.DAL
         public bool IsExist(string category)
         {
             Connection.Open();
-            Query = "select * from Category_tbl where Name='" + category + "'";
+
+            Query = "select * from Category_tbl where Name=@Name";
             Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("Name",category);
+
             Reader = Command.ExecuteReader();
-            if(Reader.HasRows)
-            {
-                Connection.Close();
-                Reader.Close();
-                return true;
-            }
+
+            bool flag = Reader.HasRows;
             Connection.Close();
             Reader.Close();
-            return false;
+            
+            return flag;
         }
     }
 }

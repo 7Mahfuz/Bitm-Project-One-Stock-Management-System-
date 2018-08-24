@@ -12,6 +12,7 @@ namespace StockManagementSystem.BLL
     {
         SellGateway aSellGateway = new SellGateway();
         StockGateway aStockGateway = new StockGateway();
+        StockManager aStockManager = new StockManager();
 
         public void Sell(List<StockOutChartVM> chartList,int whatToDo)
         {
@@ -31,13 +32,12 @@ namespace StockManagementSystem.BLL
                         if (aInnerstock.ItemId == itemId)
                         {
                             quantity += aInnerstock.Quantity;
-
                         }
-
                     }
 
                     Stock baseStock = new Stock();
-                    baseStock = aStockGateway.GetAStockByItemId(itemId);
+
+                    baseStock = aStockManager.GetAStockByItemId(itemId);
                     baseStock.Quantity -= quantity;
                     int row = aStockGateway.Update(baseStock);
 
@@ -50,7 +50,6 @@ namespace StockManagementSystem.BLL
                         aSellGateway.Save(aSellHistory);
                     }
                 }
-
                 
             }
         }

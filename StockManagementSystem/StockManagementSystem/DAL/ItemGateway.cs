@@ -13,28 +13,36 @@ namespace StockManagementSystem.DAL
         public int Save(Item aItem)
         {
             Connection.Open();
-            Query = "insert into Item_tbl values('"+aItem.Name+"',"+aItem.ReorderLevel+","+aItem.CategoryId+","+aItem.CompanyId+")";
+            Query = "insert into Item_tbl values(@Name,@ReOrder,@CategoryId,@CompanyId)";
             Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("Name",aItem.Name);
+            Command.Parameters.AddWithValue("ReOrder",aItem.ReorderLevel);
+            Command.Parameters.AddWithValue("CategoryId",aItem.CategoryId);
+            Command.Parameters.AddWithValue("CompanyId",aItem.CompanyId);
+
             RowCount = Command.ExecuteNonQuery();
-
             Connection.Close();
-
             return RowCount;
         }
 
         public bool IsExist(Item aItem)
         {
             Connection.Open();
-            Query="select * from Item_tbl where CategoryId="+aItem.CategoryId+" and CompanyId="+aItem.CompanyId+" and Name='"+aItem.Name+"' ";
+
+            Query="select * from Item_tbl where CategoryId=@CategoryId and CompanyId=@CompanyId and Name=@Name ";
             Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("Name", aItem.Name);
+            Command.Parameters.AddWithValue("CategoryId", aItem.CategoryId);
+            Command.Parameters.AddWithValue("CompanyId", aItem.CompanyId);
+
             Reader = Command.ExecuteReader();
-            if(Reader.HasRows)
-            {
-                Connection.Close();Reader.Close();
-                return true;
-            }
-            Connection.Close(); Reader.Close();
-            return false;
+
+            bool flag = Reader.HasRows;
+            Connection.Close();
+            Reader.Close();
+            return flag;
 
         }
 
@@ -108,6 +116,7 @@ namespace StockManagementSystem.DAL
             Reader.Close(); Connection.Close();
             return allItems;
         }
+
         public List<SearchItemVM> SearchItemByBothId(int companyId,int categoryId)
         {
             List<SearchItemVM> allItems = new List<SearchItemVM>();
