@@ -76,9 +76,9 @@
          
     </form>
     <br /><br /><br /><br />
-            <footer>
+            <%--<footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Stock Management System</p>
-            </footer>
+            </footer>--%>
 </body>
 </html>
  

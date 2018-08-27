@@ -8,30 +8,30 @@
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="UI/CategoryUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-                <div class="caption">
-          <p>Lorem ipsum...</p>
-        </div>
+             <img src="Image/Category.png" alt="Category" style="width:100%"/>
+              <%--  <div class="caption">
+          <p>Insert Category</p>
+        </div>--%>
       </a>
     </div>
   </div>
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="UI/CompanyUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-        <div class="caption">
-          <p> Company Section </p>
-        </div>
+             <img src="Image/Company.png" alt="Company" style="width:100%"/>
+        <%--<div class="caption">
+          <p> Insert Company </p>
+        </div>--%>
       </a>
     </div>
   </div>
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="UI/ItemUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-        <div class="caption">
-          <p>  Item Section  </p>
-        </div>
+             <img src="Image/SaveItem.png" alt="Items" style="width:100%"/>
+        <%--<div class="caption">
+          <p>  Insert Item Detail  </p>
+        </div>--%>
       </a>
     </div>
   </div>
@@ -43,30 +43,30 @@
   <div class="col-md-3">
     <div class="thumbnail">
       <a href="UI/SearchItemUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-                <div class="caption">
-          <p>Lorem ipsum...</p>
-        </div>
+             <img src="Image/SearchItem.png" alt="SearchItem" style="width:100%"/>
+               <%-- <div class="caption">
+          <p>  Search Items Details  </p>
+        </div>--%>
       </a>
     </div>
   </div>
   <div class="col-md-3">
     <div class="thumbnail">
       <a href="UI/StockInUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-        <div class="caption">
-          <p> Company Section </p>
-        </div>
+             <img src="Image/StockIn.png" alt="StockIn" style="width:100%"/>
+        <%--<div class="caption">
+          <p> Stock In Items  </p>
+        </div>--%>
       </a>
     </div>
   </div>
   <div class="col-md-3">
     <div class="thumbnail">
       <a href="UI/StockOutUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-        <div class="caption">
-          <p>  Item Section  </p>
-        </div>
+             <img src="Image/StockOut.png" alt="StockOut" style="width:100%"/>
+        <%--<div class="caption">
+          <p>  Stock Out Items  </p>
+        </div>--%>
       </a>
     </div>
   </div>
@@ -74,10 +74,10 @@
      <div class="col-md-3">
     <div class="thumbnail">
       <a href="UI/ViewSalesUI.aspx">
-             <img src="Image/01.jpg" alt="Lights" style="width:100%"/>
-                <div class="caption">
-          <p>Lorem ipsum...</p>
-        </div>
+             <img src="Image/ViewSales.png" alt="ViewSales" style="width:100%"/>
+                <%--<div class="caption">
+          <p>  View Sales History </p>
+        </div>--%>
       </a>
     </div>
   </div>
@@ -86,39 +86,3 @@
 </asp:Content>
 
 
- <%--<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>--%>

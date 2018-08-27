@@ -105,7 +105,13 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Image\01.jpg" />
+    <Content Include="Image\Category.png" />
+    <Content Include="Image\Company.png" />
+    <Content Include="Image\SaveItem.png" />
+    <Content Include="Image\SearchItem.png" />
+    <Content Include="Image\StockIn.png" />
+    <Content Include="Image\StockOut.png" />
+    <Content Include="Image\ViewSales.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
