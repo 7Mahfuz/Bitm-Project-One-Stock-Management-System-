@@ -62,9 +62,16 @@ namespace StockManagementSystem.UI
                 aStock.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
 
                 string msg = aStockManager.Save(aStock);
-                stockTextBox.Text = "";
+                ClearAll();
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + msg + "')", true);
             }
+        }
+
+        public void ClearAll()
+        {
+            stockTextBox.Text = "";
+            itemDropDownList.SelectedValue = "0";
+            companyDropDownList.SelectedValue = "0";
         }
     }
 }

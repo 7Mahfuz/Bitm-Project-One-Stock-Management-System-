@@ -12,13 +12,13 @@ namespace StockManagementSystem.BLL
     {
         ItemGateway aItemGateway = new ItemGateway();
         SellGateway aSellGateway = new SellGateway();
+
         public List<SearchItemVM> SearchItem(int companyId,int categoryId)
         {
             List<SearchItemVM> allItems = new List<SearchItemVM>();
             if (companyId > 0 && categoryId == 0)
             {
                 allItems = aItemGateway.SearchItemByComapanyId(companyId);
-
             }
             else if (companyId == 0 && categoryId > 0)
             {

@@ -33,12 +33,18 @@ namespace StockManagementSystem.UI
                 companyDropDownList.Items.Insert(0, new ListItem("-- Select Company --", "0"));
 
                 GridViewInitialize();
-                
+
             }
             else
             {
+                if (ViewState["chart"] == null)
+                {
+                    GridViewInitialize();
+                }
+                else { 
                 stockOutGridView.DataSource = (List<StockOutChartVM>)ViewState["chart"];
                 stockOutGridView.DataBind();
+            }
             }
         }
 
@@ -134,6 +140,7 @@ namespace StockManagementSystem.UI
         {
             aStockChartList= (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList,1);
+            ViewState["chart"] = null;
             ClearAllControls();
             GridViewInitialize();
 
@@ -144,6 +151,7 @@ namespace StockManagementSystem.UI
         {
             aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList, 2);
+            ViewState["chart"] = null;
             ClearAllControls();
             GridViewInitialize();
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Items added on Damage list')", true);
@@ -153,6 +161,7 @@ namespace StockManagementSystem.UI
         {
             aStockChartList = (List<StockOutChartVM>)ViewState["chart"];
             aSellManager.Sell(aStockChartList, 2);
+             ViewState["chart"] = null;
             ClearAllControls();
             GridViewInitialize();
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Items added on lost list')", true);
